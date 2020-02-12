@@ -1,4 +1,4 @@
-##CONFIGURAZIONE AMBIENTE DI SVILUPPO
+## CONFIGURAZIONE AMBIENTE DI SVILUPPO
 
 La versione di django pacchetizzata per kali (debian testing) è la 1.11.23. Dal sito di django apprendo che è la versione in LTS, ma il supporto terminerà a aprile 2020.  
 
@@ -25,10 +25,10 @@ installo django
 * `make shell` la shell django
 
 
-##NOTE DI SVILUPPO
+## NOTE DI SVILUPPO
 
 
-###BUG
+### BUG
 
 catalogo/models.py
 
@@ -41,7 +41,7 @@ non esegue l'upload del file, ma il default funziona, quindi mi sono accontentat
 
 
 
-##TODO
+## TODO
 
 * Integrare l'aggiunta di un ingrediente nella pagina di visualizzazione della ricetta, in modo da avere sempre sott'occhio la lista di quelli gia' inseriti e la descrizionde della ricetta.
 
@@ -54,7 +54,7 @@ non esegue l'upload del file, ma il default funziona, quindi mi sono accontentat
 * Servire staticamente la libreria bootstrap
 
 
-###Modellizzazione
+### Modellizzazione
 
 Gli utenti sono definiti da alcuni campi non presenti nello schema di django, altri invece coincidono.  Posso quindi estendere la classe AbstractUser per aggiungere i due campi mancanti.
 
@@ -86,9 +86,9 @@ Ingrediente con l'elenco degli ingredienti inserito da admin
 IngredienteToRicetta che collega un Ingridiente a una Ricetta, questo modello contiene anche il campo quantità, che sarà un campo di testo libero, perchè le unità di misura usate in cucina sono le più svariate (gr,etti,chili,litri,pizzichi,pugnetti,tazze,tazzine,cucchiai)
 
 
-###Views e template
+### Views e template
 
-####User
+#### User
 
 La gestione degli utenti è deputata al solo superuser. utilizzo userpassestest come decoratore e come classe per controllare se user is_superuser
 
@@ -103,7 +103,7 @@ Il campo password andrebbe forzato a essere Inpufield di tipo password, per ora 
 
 Non riesco a far funzionare il campo immagine con ImageField, ho settato MEDIA_URL e MEDIA_PATH e modoficato la sezione TEMPLATES in settings.py, ma le immagini non vengono caricate nella cartella. Rimane come BUG.
 
-####Ricetta
+#### Ricetta
 
 index: nel caso di utente anonimo presenta le ultime 5 ricette pubblicate, altrimenti l'elenco di tutte le ricette per admin e solodelle proprie per user
 search: ricerca nei campi nome e descrizione della ricetta https://docs.djangoproject.com/en/3.0/topics/db/queries/#complex-lookups-with-q-objects
@@ -115,7 +115,7 @@ deleteRicetta
 
 Le operazioni sulle ricette sono consentite solo al superuser o all'autore della ricetta
 
-####Ingrediente
+#### Ingrediente
 
 Il superuser aggiunge gli ingredienti che gli utenti possono utilizzare per le ricette
 
@@ -124,7 +124,7 @@ createIngrediente
 deleteIngrediente
 updateIngrediente
 
-####IngredientiRicette
+#### IngredientiRicette
 
 Un utente può aggiungere ingredienti a una ricetta creata da lui.
 

@@ -46,7 +46,7 @@ install il modulo django_country
 
 `git clone https://github.com/fg4mm/ricettario.git`
 
-quindi eseguire eventualmente la configurazione dell'ambiente di sviluppo.
+quindi eseguire se necessario la configurazione dell'ambiente di sviluppo (## CONFIGURAZIONE AMBIENTE DI SVILUPPO)
 
 
 ## TEST
@@ -63,8 +63,8 @@ e visitare
 
 Il db contiene gia' un utente superuser e due utenti normali
 
-admin@lan.net:admin
-user@lan.net:user
-user2@lan.net:user2
+* admin@lan.net:admin
+* user@lan.net:user
+* user2@lan.net:user2
 
 Nel db sono già presenti alcune ricette e ingredienti di test.
