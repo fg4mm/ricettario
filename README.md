@@ -1,16 +1,16 @@
 ## ABSTRACT
 
-Ore impiegate nello sviluppo: circa 10. Ho deciso prima di iniziare che avrei speso 9 ore sul progetto, e poi avrei sistemato e documentato quanto prodotto compreso di BUG irrisolti e TODO list riportati in NOTE.md
+Ore impiegate nello sviluppo: circa 10. Ho deciso prima di iniziare che avrei speso 9 ore sul progetto, e poi avrei sistemato e documentato quanto prodotto compreso di BUG irrisolti e TODO list riportati in NOTE.md. 
 
-L'applicativo è delineato nei suoi requisiti.
+L'applicativo risponde ai suoi requisiti base e potrebbe essere presentato come una demo in beta, provata poco.
 
-Gli utenti anonimi possono ricercare e visualizzare ricette
+* Gli utenti anonimi possono ricercare e visualizzare ricette
 
-Gli utenti normali possono inserire ricette
+* Gli utenti normali possono inserire ricette
 
-L'utente amministratore crea utenti, ingredienti e eventualmente gestisce le ricette
+* L'utente amministratore crea utenti, ingredienti e eventualmente gestisce le ricette
 
-In NOTE.md ci sono degli appunti sparsi presi durante lo svluppo per documentare un poco i ragionamenti, le problematiche e le soluzioni adottate.
+In NOTE.md ci sono degli appunti sparsi, veloci e incompleti presi durante lo svluppo per documentare un poco i ragionamenti, le problematiche e le soluzioni adottate.
 
 L'applciativo è stato sviluppato e provato solo attraverso il web server di test, non è pronto per il deploy, anche perchè non era indicato alcun ambiente di deploy nelle specifiche. Mancano pagine generiche per gestire gli errori, il debug è attivo, non ho configurato alcun .gitignore per escludere file dal repo, ecc...
 
