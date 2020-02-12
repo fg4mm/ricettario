@@ -1,4 +1,4 @@
-##ABSTRACT
+## ABSTRACT
 
 Ore impiegate nello sviluppo: circa 10. Ho deciso prima di iniziare che avrei speso 9 ore sul progetto, e poi avrei sistemato e documentato quanto prodotto compreso di BUG irrisolti e TODO list riportati in NOTE.md
 
@@ -15,7 +15,7 @@ In NOTE.md ci sono degli appunti sparsi presi durante lo svluppo per documentare
 L'applciativo è stato sviluppato e provato solo attraverso il web server di test, non è pronto per il deploy, anche perchè non era indicato alcun ambiente di deploy nelle specifiche. Mancano pagine generiche per gestire gli errori, il debug è attivo, non ho configurato alcun .gitignore per escludere file dal repo, ecc...
 
 
-##CONFIGURAZIONE AMBIENTE DI SVILUPPO
+## CONFIGURAZIONE AMBIENTE DI SVILUPPO
 
 Riporto in sintesi i passaggi effettuati per prepare l'ambiente di sviluppo. Maggiori info in NOTE.md
 
@@ -42,14 +42,14 @@ install il modulo django_country
 `python3 -m pip install django-countries`
 
 
-##INSTALLAZIONE ricettario
+## INSTALLAZIONE ricettario
 
 `git clone https://github.com/fg4mm/ricettario.git`
 
 quindi eseguire eventualmente la configurazione dell'ambiente di sviluppo.
 
 
-##TEST
+## TEST
 
 `make server`
 
@@ -68,5 +68,3 @@ user@lan.net:user
 user2@lan.net:user2
 
 Nel db sono già presenti alcune ricette e ingredienti di test.
-
-
