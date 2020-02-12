@@ -6,3 +6,7 @@ migrate:
 	
 server:
 	$(PYTHON) manage.py runserver
+
+shell:
+	$(PYTHON) manage.py shell
+
