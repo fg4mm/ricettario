@@ -39,6 +39,16 @@ catalogo/models.py
 
 non esegue l'upload del file, ma il default funziona, quindi mi sono accontentato
 
+esiste la cartella immagini/ricette
+
+e in settings.py 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'immagini') 
+MEDIA_URL = '/immagini/'
+
+che sembra funzionare 
+
+http://localhost:8000/immagini/default.jpg è un url valido e funzionante
 
 
 ## TODO
@@ -47,11 +57,9 @@ non esegue l'upload del file, ma il default funziona, quindi mi sono accontentat
 
 * Gestire la cancellazione degli ingredienti già inseriti da una ricetta
 
-* Verificare il comportamente da tenere in caso di cancellazione di un utente (eliminare tutte le ricette inserite ?)
+* Verificare il comportamento da tenere in caso di cancellazione di un utente (eliminare tutte le ricette inserite ?)
 
 * Dividere in pagine la visualizzazione delle ricette e degli ingredienti
-
-* Servire staticamente la libreria bootstrap
 
 
 ### Modellizzazione
