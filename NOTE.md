@@ -1,35 +1,60 @@
-===================================
-CONFIGURAZIONE AMBIENTE DI SVILUPPO
-===================================
+##CONFIGURAZIONE AMBIENTE DI SVILUPPO
 
 La versione di django pacchetizzata per kali (debian testing) è la 1.11.23. Dal sito di django apprendo che è la versione in LTS, ma il supporto terminerà a aprile 2020.  
 
 Non installo quindi il pacchetto, ma scarico dal repo git di django la versione 3.1, così sono più allineato con la documentazione ufficciale di django.
 
+Eventualmente installare virtualenv-wrapper
+
+`python3 -m pip install virtualenvwrapper`
+
 Creo un virtualenv all'interno del quale sviluppare
 
-mkvirtualenv django
+`mkvirtualenv django`
 
 aggiorno pip e setuptools
 
-python3 -m pip install --upgrade pip setuptools
+`python3 -m pip install --upgrade pip setuptools`
 
 installo django
 
-python3 -m pip install -e django/
+`python3 -m pip install -e django/`
 
-Creo un progetto ricette
+* `make server` per il wev servre di test
+* `make migrate` per aggiornare il db quando si cambia un modello
+* `make shell` la shell django
 
-django-admin startproject ricette
+
+##NOTE DI SVILUPPO
 
 
-================
-NOTE DI SVILUPPO
-================
+###BUG
 
-===============
-Modellizzazione
-===============
+catalogo/models.py
+
+   immagine = models.ImageField(
+        upload_to ='ricette',
+        default = 'default.jpg'
+    )
+
+non esegue l'upload del file, ma il default funziona, quindi mi sono accontentato
+
+
+
+##TODO
+
+* Integrare l'aggiunta di un ingrediente nella pagina di visualizzazione della ricetta, in modo da avere sempre sott'occhio la lista di quelli gia' inseriti e la descrizionde della ricetta.
+
+* Gestire la cancellazione degli ingredienti già inseriti da una ricetta
+
+* Verificare il comportamente da tenere in caso di cancellazione di un utente (eliminare tutte le ricette inserite ?)
+
+* Dividere in pagine la visualizzazione delle ricette e degli ingredienti
+
+* Servire staticamente la libreria bootstrap
+
+
+###Modellizzazione
 
 Gli utenti sono definiti da alcuni campi non presenti nello schema di django, altri invece coincidono.  Posso quindi estendere la classe AbstractUser per aggiungere i due campi mancanti.
 
@@ -60,13 +85,10 @@ Ricetta legata a User dall'autore
 Ingrediente con l'elenco degli ingredienti inserito da admin
 IngredienteToRicetta che collega un Ingridiente a una Ricetta, questo modello contiene anche il campo quantità, che sarà un campo di testo libero, perchè le unità di misura usate in cucina sono le più svariate (gr,etti,chili,litri,pizzichi,pugnetti,tazze,tazzine,cucchiai)
 
-================
-Views e template
-================
 
-====
-User
-====
+###Views e template
+
+####User
 
 La gestione degli utenti è deputata al solo superuser. utilizzo userpassestest come decoratore e come classe per controllare se user is_superuser
 
@@ -81,9 +103,7 @@ Il campo password andrebbe forzato a essere Inpufield di tipo password, per ora 
 
 Non riesco a far funzionare il campo immagine con ImageField, ho settato MEDIA_URL e MEDIA_PATH e modoficato la sezione TEMPLATES in settings.py, ma le immagini non vengono caricate nella cartella. Rimane come BUG.
 
-=======
-Ricetta
-=======
+####Ricetta
 
 index: nel caso di utente anonimo presenta le ultime 5 ricette pubblicate, altrimenti l'elenco di tutte le ricette per admin e solodelle proprie per user
 search: ricerca nei campi nome e descrizione della ricetta https://docs.djangoproject.com/en/3.0/topics/db/queries/#complex-lookups-with-q-objects
@@ -95,9 +115,7 @@ deleteRicetta
 
 Le operazioni sulle ricette sono consentite solo al superuser o all'autore della ricetta
 
-===========
-Ingrediente
-===========
+####Ingrediente
 
 Il superuser aggiunge gli ingredienti che gli utenti possono utilizzare per le ricette
 
@@ -106,9 +124,7 @@ createIngrediente
 deleteIngrediente
 updateIngrediente
 
-==================
-IngredientiRicette
-==================
+####IngredientiRicette
 
 Un utente può aggiungere ingredienti a una ricetta creata da lui.
 
