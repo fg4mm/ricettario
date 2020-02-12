@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load countries %}
+{% get_country ricetta.nazionalita as country %}
+
+    		<div container-fluid>
+			<center>
+			<h3>{{ ricetta.nome }}</h3>
+			<img src="{{ ricetta.immagine.url }}">
+			</center>
+			<ul>
+				<li>Tipo: {{ ricetta.tipo }}</li>
+				<li>Difficoltà: {{ ricetta.difficolta }}</li>
+				<li>Nazionalità: {{ country.name }}</li>
+			</ul>
+
+			<div>
+				<table class="table">
+  					<thead class="thead-dark">
+    						<tr>
+      						<th scope="col">Ingrediente</th>
+      						<th scope="col">Quantità</th>
+    						</tr>
+  						</thead>
+  						<tbody>
+  						{% for ingrediente in ingredienti %}
+    						<tr>
+							<td>{{ ingrediente }}</td>	
+							<td>{{ ingrediente.quantita }}</td>	
+    						</tr>
+  						{% endfor %}
+  					</tbody>
+				</table>
+			</div>
+			
+			<div class="text-justify">{{ ricetta.descrizione }}</div>
+    		</div>
+
+{% endblock %}

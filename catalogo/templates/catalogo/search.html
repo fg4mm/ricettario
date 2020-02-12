@@ -1,0 +1,12 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="list-group">
+  	{% for ricetta in object_list %}
+	<a class="list-group-item" href="/catalogo/ricette/{{ ricetta.pk }}/show">{{ ricetta.nome }}</a>
+  	{% endfor %}
+</div>
+
+{% endblock %}

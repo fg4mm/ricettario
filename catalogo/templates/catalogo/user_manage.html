@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="container-fluid">
+	<a class="btn btn-info" role="button" href="{% url 'ucreate' %}">Nuovo</a>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      	<th scope="col">#</th>
+      	<th scope="col">Nome</th>
+      	<th scope="col">Cognome</th>
+      	<th scope="col">Email</th>
+      	<th scope="col">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for utente in utenti %}
+    <tr>
+	<th scope="row">{{ utente.pk }}</th>
+	<th scope="row">{{ utente.first_name }}</th>
+	<th scope="row">{{ utente.last_name }}</th>
+	<th scope="row">{{ utente.email }}</th>
+	<th scope="row"><a class="btn btn-info" role="button" href="/catalogo/utenti/{{ utente.pk }}/update">Modifica</a></th>
+	<th scope="row"><a class="btn btn-info" role="button" href="/catalogo/utenti/{{ utente.pk }}/delete">Cancella</a></th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

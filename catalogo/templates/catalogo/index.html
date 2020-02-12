@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+
+{% if not user.is_authenticated %}
+	<h3><span class="label label-default">Ultime 5 ricette inserite</span></h3>
+
+   	<div class="list-group">
+	{% for ricetta in ricette %}
+			<a class="list-group-item" href='/catalogo/ricette/{{ ricetta.pk  }}/show'>{{ ricetta.nome }}</a>
+	{% endfor %}
+    	</div>
+{% else %}
+
+<div id="container-fluid">
+	<a class="btn btn-info" role="button" href="{% url 'rcreate' %}">Nuova ricetta</a>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      	<th scope="col">#</th>
+      	<th scope="col">Nome</th>
+      	<th scope="col">Autore</th>
+      	<th scope="col">&nbsp;</th>
+      	<th scope="col">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for ricetta in ricette %}
+    <tr>
+	<th scope="row">{{ ricetta.pk }}</th>
+	<th scope="row">{{ ricetta.nome }}</th>
+	<th scope="row">{{ ricetta.autore }}</th>
+	<th scope="row"><a class="btn btn-info" role="button" href="/catalogo/ricette/{{ ricetta.pk }}/update">Modifica</a></th>
+	<th scope="row"><a class="btn btn-info" role="button" href="/catalogo/ricette/{{ ricetta.pk }}/delete">Cancella</a></th>
+	<th scope="row"><a class="btn btn-info" role="button" href="/catalogo/ricette/{{ ricetta.pk }}/show">Visualizza</a></th>
+	<th scope="row"><a class="btn btn-info" role="button" href="/catalogo/ricette/{{ ricetta.pk }}/ingrediente/add">Aggiungi ingrediente</a></th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endif %}
+
+
+
+</div>
+
+{% endblock %}
