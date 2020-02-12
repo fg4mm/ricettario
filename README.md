@@ -1,0 +1,2 @@
+# ricettario
+django testing ricettario
